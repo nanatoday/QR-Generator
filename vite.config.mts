@@ -55,8 +55,29 @@ export default defineConfig({
     }),
     VitePWA({
       registerType: 'autoUpdate',
+      workbox: {
+        globPatterns: ['**/*.{js,css,html,ico,png,svg}']
+      },
       devOptions: {
         enabled: true
+      },
+      manifest: {
+        name: 'My Awesome App',
+        short_name: 'MyApp',
+        description: 'My Awesome App description',
+        theme_color: '#ffffff',
+        icons: [
+          {
+            src: '/qr-scan.png',
+            sizes: '192x192',
+            type: 'image/png'
+          },
+          {
+            src: '/qr-scan.png',
+            sizes: '512x512',
+            type: 'image/png'
+          }
+        ]
       }
     })
   ],
